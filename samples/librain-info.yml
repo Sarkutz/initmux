@@ -3,10 +3,8 @@ name: librain-info
 root: /i/project/librain/code
 windows:
 
-- Interval : M01
-- String   : M01
-- UIntBin  : M01
-- Info     : M01
+- String    : M01
+- BinString : M01
 
 - Manager: man
 

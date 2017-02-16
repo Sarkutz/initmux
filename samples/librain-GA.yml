@@ -4,9 +4,9 @@ root: /i/project/librain/code
 
 windows:
 
-- GA          : M01
-- Chromosome  : M01
-- Gene        : M01
+- GA           : M01
+- Chromosome   : M01
+- Gene         : M01
 
 - Manager: man
 

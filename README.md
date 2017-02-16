@@ -5,7 +5,7 @@ This is just another store/initializer for Tmux.
 
 # What kind of person should use it?
 
-Well. If you got this far, it probably means you have grown up and changed from [yakuake](https://yakuake.kde.org/) or [terminator](https://gnometerminator.blogspot.com.br/p/introduction.html) to tmux. But then you realized you are losing a lot of time with repeatitive tasks just to start you work, like:
+Well. If you got this far, it probably means you have grown up and changed from [yakuake](https://yakuake.kde.org/) or [terminator](https://gnometerminator.blogspot.com.br/p/introduction.html) to tmux. But then you realized you are losing a lot of time with repeatitive tasks just to start your work, like:
 
 1. Entering your project's directory
 2. Opening your text editor of choice
