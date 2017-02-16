@@ -1,16 +1,29 @@
 
 # What This Program is?
 
-This is just a session store/initializer for Tmux.
+This is just another store/initializer for Tmux.
 
-# How It Works?
+# What kind of person should use it?
 
-It's simple. All you have to do is plan your sessions into YAML files, put 
-then into `~/.config/IniTmux` and execute a single python script `src/main.py`.
+Well. If you got this far, it probably means you have grown up and changed from [yakuake](https://yakuake.kde.org/) or [terminator](https://gnometerminator.blogspot.com.br/p/introduction.html) to tmux. But then you realized you are losing a lot of time with repeatitive tasks just to start you work, like:
+
+1. Entering your project's directory
+2. Opening your text editor of choice
+3. Spliting tmux windows and creating more windows
+4. I could go on ...
+
+the point is that all programers do some kind of laboring job before really getting into work. And that doesn't mean you'll have to repeat those task each time you go to your project.
+
+And what about when you get used to a layout? I mean, when you let's say create a window splited in half, with a specific command runing in one of them and your editor in the other. Does it mean you'll have to create that perfect environment all over again next time you decide to do some code? Just the thought gives me the chills. That's why I created IniTmux.
+
+# How does it works?
+
+It's simple. All you have to do is plan your sessions into YAML files, drop
+them into `~/.config/IniTmux` and execute a single python script `src/main.py`.
 
 # How Do I Plan My Sessions?
 
-Let's say that you want to acompplish the following workspace:
+Let's say that you want to accomplish the following workspace:
 
 ```text
      Session: Files
@@ -52,13 +65,7 @@ Let's say that you want to acompplish the following workspace:
      +---------------------------------------+
 ```
 
-So, this figure suggests that you want to create a session called `Files`, where 
-this session has two windows called `Musics` and `Downloads`, respectively. Whithin
-the window `Musics`, you want two panes. The first one will execute `mocp .` and the 
-second one will execute the file manager `ranger`, and both panes will be organized 
-under layout `even-vertical`. For the second window, the thinking is analogous.
-
-Hence, you have to write the YAML file (`Files.yml`) like the following:
+to accomplish that, you must write the following `YAML` file:
 
 ```yaml
 ---
@@ -86,7 +93,7 @@ models:
 
 # YAML Syntax for IniTmux
 
-It is very simple. A YAML IniTmux file has up to 4 main attributes:
+It is very simple. A `YAML IniTmux` file has up to 4 main attributes:
 
 ### name (String)
 
@@ -94,7 +101,7 @@ It is very simple. A YAML IniTmux file has up to 4 main attributes:
 name: <SessionName>
 ```
 
-Is the name of the session. This attribute is obligatory. 
+Is the name of the session. This attribute is required. 
 
 ### root (String)
 
@@ -102,18 +109,16 @@ Is the name of the session. This attribute is obligatory.
 root: <RootDirectory>
 ```
 
-Is the directory root of all windows. This attribute is optional. If defined, its value will be concatenated 
-before the `dir`, which will be explained soon.
+Is the root directory of all windows. This attribute is optional. If defined, its value will be added before the `dir` attribute, which will be explained soon.
 
 Note: If you want to refer to `~`, please use `'~'` or `"~"` not only `~`. This symbol will be expanded to the 
 HOME location of the user who called the script. It uses `os.path.expanduser` of `os` python module.
 
 ### models
 
-Is a sort of skeleton that you want to put into your windows description. You can then describe a model that 
-can be applyed to several windows at once.
+They are a sort of ***skeleton*** for your windows description. You can describe a model which can be applied to several windows at once.
 
-You can see the power of the `models` attribute, in the following example:
+See the power of the `models` attribute in the following example:
 
 * `~/.config/IniTmux/Packagers.yml`
 ```yaml
@@ -131,20 +136,18 @@ models:
         panes: 2
 ```
 
-with this configuration, IniTmux will create a session called `Packagers` with 5 windows. In each window, 
-IniTmux will apply the model called `two`, which will create 2 (`two`) panes without commands. 
+well that is it. With this configuration, IniTmux will create a session called `Packagers` with 5 windows. In each window, IniTmux will apply the model called `two`, which will create 2 (`two`) panes without commands. 
 
-You can also see that both `root` and `dir` attributes wasn't written. In this case, IniTmux will change 
+You can also see that both `root` and `dir` attributes were not written. In this case, IniTmux will change 
 directory to HOME (`~`).
-
 
 ### windows 
 
 Is the list of window names, model names and possible specific directory for all the panes of that window. This 
-attribute is obligatory. 
+attribute is required. 
 
 
-There is 4 ways to describe a window.
+There are 4 ways to describe a window.
 
 ###### Direct Form
 
@@ -212,7 +215,7 @@ models:
 
 Note:
     Until this moment, you cannot overwrite the `panes` attribute yet. This part of the 
-    code (or even the entire code) was written with hurry, and still lacks of organization. With time, I'll take 
+    code (or even the entire code) was written in a hurry, and still lacks of organization. With time, I'll take 
     care of this feature.
 
 ###### Numeric Form
@@ -254,8 +257,7 @@ models:
 
 ###### Command Form
 
-Occurs when you want to create a window, with a single pane, and execute a command inside this pane. In this case, IniTmux will 
-assume default values for `layout` and `dir`.
+Occurs when you want to create a window, with a single pane, and execute a command inside this pane. In this case, IniTmux will assume default values for `layout` and `dir`.
 
 The syntax is:
 
@@ -287,8 +289,7 @@ models:
             - ''
 ```
 
-Note: If you have created a model with the same name of the command that you want to use in this case, IniTmux will apply 
-the model instead of the single command. But, there is a trick you can do to avoid this. See this example:
+Note: If you have created a model with the same name of the command that you want to use in this case, IniTmux will apply the model instead of the single command. But, there is a trick you can do to avoid this. See this example:
 
 ```yaml
 ---
@@ -303,7 +304,7 @@ models:
         panes: 2
 ```
 
-See what I did here? I putted the command inside `'` `'`, with a space after the command.
+See what I did here? I put the command inside `'` `'`, with a space after the command.
 
 ###### Yes, you can mix all these forms together when describing windows
 
@@ -372,7 +373,7 @@ models:
 
 ###### One Command Form
 
-You want to create several panes and apply a command after its creation. Example:
+You want to create several panes and apply a single command after their creation. Example:
 
 ```yaml
     three:
@@ -416,9 +417,9 @@ as you can see, you can mix `One Command` and `Multiple Command` Forms together.
 # IniTmux Wildcards
 
 To support the `models` feature, I had to implement some sort of wildcards, so I can 
-reference inside the model something about the window or the session names. In another 
+reference inside the model something about the window or the session. In another 
 private project, I'm using git with feature branch workflow. Each feature has its own 
-branch such as its own directory as well. The directory structure of the `Math` main 
+branch and also its own directory. The directory structure of the `Math` main 
 branch is the following.
 
 ```text
@@ -438,11 +439,11 @@ All of these directories, except `branch`, has a lot in common when creating win
 
 1. The name of the directory will be the name of the window;
 2. All windows will share the same layout;
-3. All windows will have the same panes structure.
+3. All windows will have the same structure for each pane.
 
 For the `branch` directory, I like to make specific description about the window creation. 
 
-So, to acompplish this, and take advantage of the similarities, I've created the following YAML file.
+So, to accomplish this, and take advantage of the similarities, I've created the following YAML file.
 
 * samples/AK-MATH.yml
 
@@ -477,19 +478,18 @@ models:
 ```
 
 in this case, I have just one model (`feature`). You can see that `dir` attribute has the `<WName>`
-wildcard, that will be expanded to the name of the window that "call" the model `feature`. And, you 
+wildcard, that will be expanded to the name of the window that "called" the model `feature`. And, you 
 can also see that I've described specific settings for the `Math` window, once it has specific requirements.
 
 ### List of Possible Wildcards
 
-A wildcard can be used inside any of the following attibutes: `root`, `dir`, and inside any command line described 
-into `panes` attibutes.
+A wildcard can be used inside any of the following attibutes: `root`, `dir`, and inside any command line described into `panes` attibutes.
 
 Each wildcard must be written inside `<` and `>`. What will be inside can vary as follows:
 
 1. `wname`, `winname`, `windname`, and `windowname`. Example:
 
-all of these wildcards will be expaded to the window name.
+all of these wildcards will be expaded to the window's name.
 
 ```text
     dir: 'feature/<WindName>'
@@ -507,7 +507,7 @@ all of these wildcards will be expaded to the sessin name.
     - cd
 ```
 
-you can write a wildcard ignoring the case of the letters. This can be done thanks to thPython's regex module. 
+you can write a wildcard ignoring the case of the letters. This can be done thanks to Python's regex module. 
 In the code, the pattern variables for these wildcards are:
 
 ```python
@@ -519,15 +519,16 @@ and they are used only inside the function `CreatePanes`. So, if you want to cha
 
 # Related Projects
 
-If IniTmux does not suits your needs, then you can take a look at these projects:
+If IniTmux does not suit your needs, then you can take a look at these projects:
 
 1. [Tmuxinator](https://github.com/tmuxinator/tmuxinator)
 2. [Teamocil](https://github.com/remiprev/teamocil)
 
 # Tips
 
-TODO
-
+1. If you use `vim` or `neovim`, then checkout my other project called [VWS](https://github.com/iasj/VWS). It stands for Vim WorkSpace. It does basicaly the same as IniTmux, but less powerful.
+2. If you are new to tmux, maybe my [configurations](https://github.com/iasj/tmux) can help you avoid the bible of tmux's man page.
+ 
 # Dependencies
 
 ###### pyyaml
@@ -536,19 +537,8 @@ I strongly recommend you to install it with pip.
 
     $sudo pip install pyyaml
 
-* Others Modules
-
-```text
-    os
-    pprint
-    subprocess
-```
-
 # TODO
 
 1. Reload Operations
-
-    I'm now trying to implement reload operations. `Without success!`
-
 2. Console Argument Parser
 3. Install and Uninstall Script
