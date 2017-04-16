@@ -5,16 +5,16 @@ This is just another store/initializer for Tmux.
 
 # What kind of person should use it?
 
-Well. If you got this far, it probably means you have grown up and changed from [yakuake](https://yakuake.kde.org/) or [terminator](https://gnometerminator.blogspot.com.br/p/introduction.html) to tmux. But then you realized you are losing a lot of time with repeatitive tasks just to start your work, like:
+Well. If you got this far, it probably means you have grown up and changed from [yakuake](https://yakuake.kde.org/) or [terminator](https://gnometerminator.blogspot.com.br/p/introduction.html) to tmux. But then you realized you are losing a lot of time with repetitive tasks just to start your work, like:
 
 1. Entering your project's directory
 2. Opening your text editor of choice
-3. Spliting tmux windows and creating more windows
+3. Splitting tmux windows and creating more windows
 4. I could go on ...
 
-the point is that all programers do some kind of laboring job before really getting into work. And that doesn't mean you'll have to repeat those task each time you go to your project.
+the point is that all programmers do some kind of laboring job before really getting into work. And that doesn't mean you'll have to repeat those task each time you go to your project.
 
-And what about when you get used to a layout? I mean, when you let's say create a window splited in half, with a specific command runing in one of them and your editor in the other. Does it mean you'll have to create that perfect environment all over again next time you decide to do some code? Just the thought gives me the chills. That's why I created IniTmux.
+And what about when you get used to a layout? I mean, when you let's say create a window split in half, with a specific command running in one of them and your editor in the other. Does it mean you'll have to create that perfect environment all over again next time you decide to do some code? Just the thought gives me the chills. That's why I created IniTmux.
 
 # How does it works?
 
@@ -489,7 +489,7 @@ Each wildcard must be written inside `<` and `>`. What will be inside can vary a
 
 1. `wname`, `winname`, `windname`, and `windowname`. Example:
 
-all of these wildcards will be expaded to the window's name.
+all of these wildcards will be expanded to the window's name.
 
 ```text
     dir: 'feature/<WindName>'
@@ -497,7 +497,7 @@ all of these wildcards will be expaded to the window's name.
 
 2. `sname`, `sesname`, `sessname`, and `sessionname`. Example:
 
-all of these wildcards will be expaded to the sessin name.
+all of these wildcards will be expanded to the session name.
 
 ```text
     root: '~/<SessionName>'
