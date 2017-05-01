@@ -1,6 +1,6 @@
 ---
-name: Makefiles
-root: /i/project/Makefiles
+name: cph
+root: /i/project/cph
 
 panes: 
     - Neovim: &neovim
@@ -10,10 +10,11 @@ panes:
 
 windows:
 
-- Makefile  : make
-- Scripts   : make
-- Headers   : make
-- Libraries : make
+    #- Makefile  : make
+    #- Scripts   : make
+    #- Headers   : make
+    #- Libraries : make
+- Perl      : make
 - Others    : make
 - Manager   : 1
 

@@ -1,0 +1,21 @@
+---
+name: Perldoc
+
+windows:
+
+    - perlintro : doc
+    - perlvar   : doc
+    - perlutil  : doc
+    - perlhack  : doc
+    - perlop    : doc
+    - perlpod   : doc
+    - perlsub   : doc
+    - perlre    : doc
+    - perlreapi : doc
+    - perl      : doc
+
+models:
+
+    doc:
+        panes: 
+            - perldoc <wname>
