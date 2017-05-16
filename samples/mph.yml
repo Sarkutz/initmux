@@ -1,6 +1,6 @@
 ---
-name: cph
-root: /i/project/cph
+name: mph
+root: /i/project/mph
 
 panes: 
     - Neovim: &neovim
@@ -9,19 +9,16 @@ panes:
         - nvim -c "VWSLoadWorkSpace <WName>"
 
 windows:
-
-    #- Makefile  : make
-    #- Scripts   : make
-    #- Headers   : make
-    #- Libraries : make
-- Perl      : make
-- Others    : make
+- Perl        : mod
+- Conf        : mod
+- Skel-Main   : mod
+- Skel-Module : mod
+- Shell       : mod
 - Manager   : 1
-
 
 models:
 
-    make:
+    mod:
         layout: even-vertical
         panes:
             - Neovim: *neovim

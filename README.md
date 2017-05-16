@@ -19,7 +19,7 @@ And what about when you get used to a layout? I mean, when you let's say create 
 # How does it works?
 
 It's simple. All you have to do is plan your sessions into YAML files, drop
-them into `~/.config/IniTmux` and execute a single python script `src/main.py`.
+them into `~/.config/initmux` and execute a single python script `src/main.py`.
 
 # How Do I Plan My Sessions?
 
