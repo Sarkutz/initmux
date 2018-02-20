@@ -12,11 +12,11 @@ Well. If you got this far, it probably means you have grown up and changed from 
 3. Splitting tmux windows and creating more windows
 4. I could go on ...
 
-the point is that all programmers do some kind of laboring job before really getting into work. And that doesn't mean you'll have to repeat those task each time you go to your project.
+the point is that all programmers do some kind of laboring job before really getting into work. And that doesn't mean you'll have to repeat those tasks every time you go to your project.
 
-And what about when you get used to a layout? I mean, when you let's say create a window split in half, with a specific command running in one of them and your editor in the other. Does it mean you'll have to create that perfect environment all over again next time you decide to do some code? Just the thought gives me the chills. That's why I created IniTmux.
+And what about when you get used to a layout? I mean, when you let's say create a window split in half, with a specific command running in one of them and your editor in the other. Does it mean you'll have to create that perfect environment all over again next time you decide to do some code? Just the thought gives me the chills! That's why I created IniTmux.
 
-# How does it works?
+# How does it work?
 
 It's simple. All you have to do is plan your sessions into YAML files, drop
 them into `~/.config/initmux` and execute a single python script `src/main.py`.
@@ -147,11 +147,11 @@ Is the list of window names, model names and possible specific directory for all
 attribute is required. 
 
 
-There are 4 ways to describe a window.
+There are 5 ways to describe a window.
 
-###### Direct Form
+###### Direct Way
 
-In this form, you describe the window without using any model. Example:
+In this way, you describe the window without using any model. Example:
 
 ```yaml
 windows:
@@ -166,9 +166,9 @@ windows:
 
 this will create 1 window called `Directories` with 4 panes.
 
-###### Model Form
+###### Model Way
 
-In this form, you describe a set of models and apply then in each window. Example:
+In this way, you describe a set of models and apply then in each window. Example:
 
 ```yaml
 windows:
@@ -186,9 +186,9 @@ models:
         panes: 2
 ```
 
-###### Overwrite Model Form
+###### Overwrite Model Way
 
-In this form, you describe a set of models and apply then in each window, but you can 
+In this way, you describe a set of models and apply then in each window, but you can 
 overwrite one or more attibutes of a model if you want. Example:
 
 ```yaml
@@ -218,7 +218,7 @@ Note:
     code (or even the entire code) was written in a hurry, and still lacks of organization. With time, I'll take 
     care of this feature.
 
-###### Numeric Form
+###### Numeric Way
 
 Occurs when you want to create a window describing only its `number of panes`. In this case, IniTmux will take 
 default values for `dir` and `layout` attributes, which is `''` for both. I also have to say that no command will
@@ -244,7 +244,7 @@ windows:
 - sh     : ranger
 - python : ranger
 
-- Root: 2 # This window is described in Numeric Form
+- Root: 2 # This window is described in Numeric Way
 
 models:
     ranger:
@@ -255,7 +255,7 @@ models:
             - ''
 ```
 
-###### Command Form
+###### Command Way
 
 Occurs when you want to create a window, with a single pane, and execute a command inside this pane. In this case, IniTmux will assume default values for `layout` and `dir`.
 
@@ -278,7 +278,7 @@ windows:
 
 - Root: 2               
 
-- other : watch df -h   # This window is described in Command Form
+- other : watch df -h   # This window is described in Command Way
 
 models:
     ranger:
@@ -306,7 +306,7 @@ models:
 
 See what I did here? I put the command inside `'` `'`, with a space after the command.
 
-###### Yes, you can mix all these forms together when describing windows
+###### Yes, you can mix all those ways together when describing windows
 
 Example:
 
@@ -315,7 +315,7 @@ Example:
 name: Test
 root: '~'
 windows:
-- Directories:      # Direct Form
+- Directories:      # Direct way
     layout: tiled
     panes: 
     - cd
@@ -323,16 +323,16 @@ windows:
     - cd /usr
     - cd /boot
 
-- Library: three            # Model Form
+- Library: three            # Model way
 
-- Books:                    # Overwrite Form
+- Books:                    # Overwrite way
     model: two
     dir: 'Documents/Livros'
     layout: tiled
 
-- Doc: 3                     # Numeric Form
+- Doc: 3                     # Numeric way
 
-- other : watch df -h        # Command Form
+- other : watch df -h        # Command way
 
 models:
     three:
@@ -347,9 +347,9 @@ models:
 
 # Panes Description
 
-You can describe panes in 3 different forms:
+You can describe panes in 3 different way:
 
-###### Number form
+###### Number way
 
 You are only interested in create a number of panes and apply no commands. Example:
 
@@ -371,7 +371,7 @@ models:
         panes: 4
 ```
 
-###### One Command Form
+###### One Command way
 
 You want to create several panes and apply a single command after their creation. Example:
 
@@ -385,7 +385,7 @@ You want to create several panes and apply a single command after their creation
         - ''
 ```
 
-###### Multiple Commands Form
+###### Multiple Commands way
 
 You want to create several panes and apply several commands, in sequence, for each pane. Example:
 
@@ -412,18 +412,18 @@ models:
             - df -h
 ```
 
-as you can see, you can mix `One Command` and `Multiple Command` Forms together.
+as you can see, you can mix `One Command` and `Multiple Command` ways together.
 
 # IniTmux Wildcards
 
 To support the `models` feature, I had to implement some sort of wildcards, so I can 
 reference inside the model something about the window or the session. In another 
 private project, I'm using git with feature branch workflow. Each feature has its own 
-branch and also its own directory. The directory structure of the `Math` main 
+branch and also its own directory. For example, the directory structure of the `Math` main 
 branch is the following.
 
 ```text
-$ tree -L 1 -d /i/project/LibAK/feature/Math
+$ tree -L 1 -d /path/to/feature/Math
 .
 ├── Bool
 ├── branch
@@ -441,7 +441,7 @@ All of these directories, except `branch`, has a lot in common when creating win
 2. All windows will share the same layout;
 3. All windows will have the same structure for each pane.
 
-For the `branch` directory, I like to make specific description about the window creation. 
+For the `branch` directory, I like to make a specific description about the window creation. 
 
 So, to accomplish this, and take advantage of the similarities, I've created the following YAML file.
 
@@ -450,7 +450,7 @@ So, to accomplish this, and take advantage of the similarities, I've created the
 ```yaml
 ---
 name: AK-Math 
-root: /i/project/LibAK/feature/Math
+root: /path/to/feature/Math
 windows:
 - Matrix  : feature
 - Vector  : feature
@@ -519,14 +519,14 @@ and they are used only inside the function `CreatePanes`. So, if you want to cha
 
 # Related Projects
 
-If IniTmux does not suit your needs, then you can take a look at these projects:
+If IniTmux does not suit your needs, then perhaps you might want to take a look at these other projects:
 
 1. [Tmuxinator](https://github.com/tmuxinator/tmuxinator)
 2. [Teamocil](https://github.com/remiprev/teamocil)
 
 # Tips
 
-1. If you use `vim` or `neovim`, then checkout my other project called [VWS](https://github.com/iasj/VWS). It stands for Vim WorkSpace. It does basicaly the same as IniTmux, but less powerful.
+1. If you use `vim` or `neovim`, then checkout my other project called [VWS](https://github.com/iasj/vws). It stands for Vim WorkSpace. It does basicaly the same as IniTmux, but less powerful.
 2. If you are new to tmux, maybe my [configurations](https://github.com/iasj/tmux) can help you avoid the bible of tmux's man page.
  
 # Dependencies
@@ -539,6 +539,7 @@ I strongly recommend you to install it with pip.
 
 # TODO
 
-1. Reload Operations
+1. Reload and Edit Operations
 2. Console Argument Parser
 3. Install and Uninstall Script
+4. Object Oriented Code
