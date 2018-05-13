@@ -2,27 +2,26 @@
 name: TCC
 root: /i/folders/UFPA/TCC
 
-panes: 
+panes: &r
+    - ranger
     - Neovim: &neovim
         - mkdir .VWS
         - touch .VWS/<WName> 
         - nvim -c "VWSLoadWorkSpace <WName>"
 
 windows:
-- code: 
-    dir: <winname>
-    panes:
-        - Neovim: *neovim
 
-          #- paper        : mod
-          #- presentation : mod
-          #- research     : mod
-          #- resources    : mod
+- scad  : code
+- src   : code
+- help  : code
+- paper : paper
 
 models:
 
-    mod:
-        layout: even-vertical
+    code: 
+        dir: ../../../project/paramcoder
+        panes: *r
+
+    paper: 
         dir: <winname>
-        panes:
-            - ranger
+        panes: *r
