@@ -29,7 +29,7 @@ TmuxLayouts.append('even-horizontal')
 TmuxLayouts.append('even-vertical')
 TmuxLayouts.append('main-horizontal')
 TmuxLayouts.append('main-vertical')
-FilesDirectory = os.path.expanduser('~/.config/initmux/samples')
+FilesDirectory = os.path.expanduser('~/.config/initmux')
 
 connectFailed = 'failed to connect to server'
 
