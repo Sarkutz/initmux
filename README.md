@@ -16,10 +16,25 @@ the point is that all programmers do some kind of laboring job before really get
 
 And what about when you get used to a layout? I mean, when you let's say create a window split in half, with a specific command running in one of them and your editor in the other. Does it mean you'll have to create that perfect environment all over again next time you decide to do some code? Just the thought gives me the chills! That's why I created IniTmux.
 
+# Installation
+
+Run `make install`. It will copy the only file `src/main.py` to 
+`/usr/bin/initmux`. After that, initmux will be found as `initmux` command.
+
+```console
+cd
+git clone https://github.com/iasj/initmux
+cd initmux
+make install
+```
+
+Run `make uninstall` to uninstall.
+
 # How does it work?
 
 It's simple. All you have to do is plan your sessions into YAML files, drop
 them into `~/.config/initmux` and execute a single python script `src/main.py`.
+
 
 # How Do I Plan My Sessions?
 
