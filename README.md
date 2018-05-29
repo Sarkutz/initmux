@@ -168,7 +168,7 @@ this will create 1 window called `Directories` with 4 panes.
 
 ###### Model Way
 
-In this way, you describe a set of models and apply then in each window. Example:
+In this way, you describe a set of models and apply them in each window. Example:
 
 ```yaml
 windows:
@@ -527,15 +527,17 @@ If IniTmux does not suit your needs, then perhaps you might want to take a look 
 # Tips
 
 1. If you use `vim` or `neovim`, then checkout my other project called [VWS](https://github.com/iasj/vws). It stands for Vim WorkSpace. It does basicaly the same as IniTmux, but less powerful.
-2. If you are new to tmux, maybe my [configurations](https://github.com/iasj/tmux) can help you avoid the bible of tmux's man page.
+2. If you are new to tmux, maybe my [configurations](https://github.com/iasj/config/tree/master/tmux) can help you avoid the bible of tmux's man page.
  
 # Dependencies
 
 ###### pyyaml
 
-I strongly recommend you to install it with pip.
-
     $sudo pip install pyyaml
+    $sudo pacman -S python-yaml         #in Arch Linux
+    $sudo apt-get install python-yaml   #in Debian Likes
+
+or you can check [its github page](https://github.com/yaml/pyyaml)
 
 # TODO
 
