@@ -1,0 +1,19 @@
+---
+#wsdir  : '~/.config/initmux/wspaces'
+#ymldir : '~/.config/initmux/yamls'
+#
+#skel: #{
+#
+#  nvim: &nvim
+#    - mkdir -p .nvim/vws
+#    - touch .nvim/vws/<wname> 
+#    - nvim -c ":VWSLoadWorkSpace <wname>"
+#
+#  ranger1: &ranger1
+#    - ranger
+#
+#  ranger2: &ranger2
+#    - ranger
+#    - ranger
+#
+## }    
