@@ -2,7 +2,9 @@
 pwd = $(shell pwd)
 
 run:
-	@python src/main.py
+	@python src/main.py --help
+	@echo --------------------------
+	@python src/main.py echo
 
 
 install:

@@ -1,6 +1,7 @@
 ---
-#wsdir  : '~/.config/initmux/wspaces'
-#ymldir : '~/.config/initmux/yamls'
+wsdir : '~/.config/initmux/wspaces'
+sdir  : '~/.config/initmux/sessions'
+terminal: 'termite'
 #
 #skel: #{
 #

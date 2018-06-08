@@ -2,3 +2,5 @@
 src/main.py
 # samples/config.yml
 samples/config.yml
+# Makefile
+Makefile
